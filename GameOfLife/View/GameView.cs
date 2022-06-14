@@ -16,7 +16,7 @@
             {
                 for (int column = 0; column < args.GetLength(0); column++)
                 {
-                    Console.Write(args[row , column] == 1 ? "*" : " ");
+                    Console.Write(args[column , row] == 1 ? "*" : " ");
                 }
                 Console.WriteLine();
             }
