@@ -1,31 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GameOfLife
+﻿namespace GameOfLife
 {
     /// <summary>
-    /// 
+    /// View of the game field.
     /// </summary>
     public class GameView
     {
         /// <summary>
-        /// Makes view of the game field
+        /// Makes view of the game field.
         /// </summary>
-        /// <param name="args">Array containing the game field</param>
+        /// <param name="args">Array containing the game field.</param>
         public void View(int[,] args)
         {
             Console.Clear();
-
-            for (int x = 0; x < args.GetLength(0); x++)
+            for (int row = 0; row < args.GetLength(0); row++)
             {
-                for (int y = 0; y < args.GetLength(1); y++)
+                for (int column = 0; column < args.GetLength(1); column++)
                 {
-                    Console.Write(args[x, y] == 1 ? "*" : " ");
+                    Console.Write(args[row , column] == 1 ? "*" : " ");
                 }
-
                 Console.WriteLine();
             }
         }

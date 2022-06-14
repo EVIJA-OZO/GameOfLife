@@ -1,19 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GameOfLife
+﻿namespace GameOfLife
 {
     /// <summary>
-    /// Contains defined minimal and maximal game parameters
+    /// Contains defined minimal and maximal game parameters.
     /// </summary>
     public class GameParameters
     {
-        public static int minInputValue = 5;
-        public static int maxInputValue = 50;
+        public const int minInputValue = 5;
+        public const int maxInputValue = 50;
     }
-
-
 }

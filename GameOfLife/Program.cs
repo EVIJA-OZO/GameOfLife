@@ -1,18 +1,15 @@
-﻿using System;
-
-namespace GameOfLife
+﻿namespace GameOfLife
 {
     /// <summary>
-    /// Main class of the game
+    /// Main class of the game.
     /// </summary>
     public class Program
     {
         static void Main()
         {
             /// <summary>
-            /// Runs the game
+            /// Runs the game.
             /// </summary>
-
             GameManager gameManager = new GameManager();
             gameManager.Play();
         }
