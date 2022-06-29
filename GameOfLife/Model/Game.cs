@@ -9,9 +9,14 @@
         /// <summary>
         /// Array that will contain the game field.
         /// </summary>
-        public int [,] GameField { get; set; }
-
+        public int[,] GameField { get; set; }
+        /// <summary>
+        /// Count of current game iterations.
+        /// </summary>
         public int CountOfIteration { get; set; }
+        /// <summary>
+        /// Count of live cells in current generation.
+        /// </summary>
         public int CountOfLiveCells { get; set; }
 
         /// <summary>
@@ -19,11 +24,11 @@
         /// </summary>
         /// <param name="column">The number of columns entered by the user.</param>
         /// <param name="row">The number of rows entered by the user.</param>
-        public Game (int column, int row)
+        public Game(int column, int row)
         {
             CountOfIteration = 0;
             CountOfLiveCells = 0;
-            GameField = new int [column , row];
+            GameField = new int[column, row];
             SetRandomFirstGeneration();
         }
 
@@ -37,7 +42,7 @@
             {
                 for (int row = 0; row < GameField.GetLength(1); row++)
                 {
-                    GameField[colomn , row] = random.Next(3) == 0 ? 1 : 0;
+                    GameField[colomn, row] = random.Next(3) == 0 ? 1 : 0;
                 }
             }
         }
@@ -47,7 +52,7 @@
         /// </summary>
         public void GetNextGeneration()
         {
-            int[,] newGameField = new int[GameField.GetLength(0) , GameField.GetLength(1)];
+            int[,] newGameField = new int[GameField.GetLength(0), GameField.GetLength(1)];
             CountOfLiveCells = 0;
             for (int column = 0; column < GameField.GetLength(0); column++)
             {
@@ -73,7 +78,7 @@
         private int AliveCells(int column, int row)
         {
             int neighbors = CountNeighbors(column, row);
-            bool aliveCell = GameField[column , row] == 1;
+            bool aliveCell = GameField[column, row] == 1;
             if (neighbors == 3)
             {
                 return 1;

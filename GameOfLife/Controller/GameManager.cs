@@ -31,7 +31,7 @@ namespace GameOfLife
                 if (Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.Spacebar)
                 {
                     Console.WriteLine(GameMessages.stopGame);
-                    string choice = Console.ReadLine();
+                    string choice = Console.ReadLine().ToLower();
                     if (choice == "s")
                     {
                         SaveGame(game);
@@ -64,7 +64,7 @@ namespace GameOfLife
         {
             Game loadgame = JsonConvert.DeserializeObject<Game>(File.ReadAllText(GameMessages.fileName));
             return loadgame;
-            
+
         }
     }
 }
