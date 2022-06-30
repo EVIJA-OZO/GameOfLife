@@ -3,26 +3,43 @@
     /// <summary>
     /// Management of the game.
     /// </summary>
-    public class GameManager
+    public class GameManager : IGameManager
     {
         /// <summary>
         /// Starts the game.
         /// </summary>
         public void Play()
         {
-            UserInterface userInterface = new UserInterface();
-            GameView gameView = new GameView();
             UserInterface.WelcomeScreen();
-            
-            int column = userInterface.GetValidUserInput(UserInterface.inputColomnMessage, GameParameters.minInputValue, GameParameters.maxInputValue);
-            int row = userInterface.GetValidUserInput(UserInterface.inputRowMessage, GameParameters.minInputValue, GameParameters.maxInputValue);
-            Game game = new Game(column, row);
-            gameView.View(game.gameField);
+
+            int column = UserInterface.GetValidUserInput(GameMessages.inputColomnMessage, GameParameters.minInputValue, GameParameters.maxInputValue);
+            int row = UserInterface.GetValidUserInput(GameMessages.inputRowMessage, GameParameters.minInputValue, GameParameters.maxInputValue);
+            Game game = new(column, row);
+            DisplayGame.Display(game.GameField, game);
+
             while (true)
             {
                 game.GetNextGeneration();
-                gameView.View(game.gameField);
+                DisplayGame.Display(game.GameField, game);
                 Thread.Sleep(1000);
+
+                if (Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.Spacebar)
+                {
+                    Console.WriteLine(GameMessages.stopGame);
+                    string choice = Console.ReadLine().ToLower();
+                    if (choice == "s")
+                    {
+                        DataManager.SaveGame(game);
+                    }
+                    else if (choice == "l")
+                    {
+                        game = DataManager.LoadGame();
+                    }
+                    else if (choice == "x")
+                    {
+                        break;
+                    }
+                }
             }
         }
     }

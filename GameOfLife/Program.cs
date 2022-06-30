@@ -10,7 +10,7 @@
             /// <summary>
             /// Runs the game.
             /// </summary>
-            GameManager gameManager = new GameManager();
+            GameManager gameManager = new();
             gameManager.Play();
         }
     }
