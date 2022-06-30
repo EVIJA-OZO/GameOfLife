@@ -10,10 +10,12 @@
         /// Array that will contain the game field.
         /// </summary>
         public int[,] GameField { get; set; }
+
         /// <summary>
         /// Count of current game iterations.
         /// </summary>
         public int CountOfIteration { get; set; }
+
         /// <summary>
         /// Count of live cells in current generation.
         /// </summary>
@@ -58,10 +60,11 @@
             {
                 for (int row = 0; row < GameField.GetLength(1); row++)
                 {
-                    newGameField[column, row] = AliveCells(column, row);
+                    newGameField[column, row] = WillCellBeAlive(column, row);
                     CountOfLiveCells += newGameField[column, row];
                 }
             }
+
             GameField = newGameField;
             CountOfIteration++;
         }
@@ -75,7 +78,7 @@
         /// <param name="column">Current cell column position.</param>
         /// <param name="row">Current cell row position.</param>
         /// <returns>Number 1 if cell will be alive or 0 if not.</returns>
-        private int AliveCells(int column, int row)
+        private int WillCellBeAlive(int column, int row)
         {
             int neighbors = CountNeighbors(column, row);
             bool aliveCell = GameField[column, row] == 1;
@@ -87,10 +90,8 @@
             {
                 return 1;
             }
-            else
-            {
-                return 0;
-            }
+
+            return 0;
         }
 
         /// <summary>
