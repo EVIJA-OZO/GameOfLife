@@ -2,6 +2,9 @@
 
 namespace GameOfLife
 {
+    /// <summary>
+    /// Management of the game data and files.
+    /// </summary>
     public class DataManager
     {
         /// <summary>
@@ -19,8 +22,8 @@ namespace GameOfLife
         public static Game? LoadGame()
         {
             Game loadgame = JsonConvert.DeserializeObject<Game>(File.ReadAllText(GameMessages.fileName));
-            return loadgame;
 
+            return loadgame;
         }
     }
 }
