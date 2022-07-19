@@ -6,5 +6,8 @@
     public interface IGameManager
     {
         void Play();
+        void SingleGame();
+        void StartMultipleGames();
+        void ShowSelectedGames();
     }
 }

@@ -7,5 +7,7 @@
     {
         public const int minInputValue = 5;
         public const int maxInputValue = 50;
+        public const int minMultipleGames = 8;
+        public const int maxMultipleGames = 1000;
     }
 }

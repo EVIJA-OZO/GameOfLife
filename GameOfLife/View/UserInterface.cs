@@ -11,8 +11,8 @@
         public static void WelcomeScreen()
         {
             Console.WriteLine(GameMessages.welcomeMessage);
+            Console.WriteLine();
             Console.WriteLine(GameMessages.gameRules);
-            Console.ReadKey();
         }
 
         /// <summary>
@@ -28,6 +28,7 @@
             {
                 Console.WriteLine(message);
                 string value = Console.ReadLine();
+
                 if (int.TryParse(value, out int number))
                 {
                     if (number >= minInputValue && number <= maxInputValue)
@@ -40,6 +41,14 @@
                     Console.WriteLine(GameMessages.errorMessage);
                 }
             }
+        }
+
+        /// <summary>
+        /// Handles incorrect users' input.
+        /// </summary>
+        public static void IncorrectDataInput()
+        {
+            Console.WriteLine(GameMessages.errorMessage);
         }
     }
 }
