@@ -21,14 +21,14 @@ namespace GameOfLife
         /// </summary>
         public static List<Game> LoadGame()
         {
-            List<Game> loadgames = JsonConvert.DeserializeObject<List<Game>>(File.ReadAllText(GameMessages.fileName));
+            List<Game> loadGames = JsonConvert.DeserializeObject<List<Game>>(File.ReadAllText(GameMessages.fileName));
 
-            if (loadgames == null)
+            if (loadGames == null)
             {
                 return new List<Game>();
             }
 
-            return loadgames;
+            return loadGames;
         }
     }
 }
